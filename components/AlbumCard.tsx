@@ -27,7 +27,7 @@ export function AlbumCard({ journey, ocImage, ocName, index = 0 }: Props) {
 
   return (
     <Link
-      href={`/album/${journey.id}`}
+      href={`/album/entry?id=${journey.id}`}
       className="group block animate-fade-up rounded-[22px] border border-line bg-card p-3 shadow-card transition duration-200 hover:-translate-y-1 hover:shadow-lift focus-visible:outline-2 focus-visible:outline-clay"
       style={{ rotate: `${tilt}deg`, animationDelay: `${Math.min(index, 8) * 60}ms` }}
     >

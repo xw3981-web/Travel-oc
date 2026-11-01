@@ -17,7 +17,7 @@ No API keys or accounts are needed. Everything runs locally with mock AI and bro
 
 | Area | Where | Notes |
 | --- | --- | --- |
-| Routes | `app/` | `/` room, `/create`, `/prepare`, `/journey`, `/return`, `/album`, `/album/[id]` |
+| Routes | `app/` | `/` room, `/create`, `/prepare`, `/journey`, `/return`, `/album`, `/album/entry?id=` |
 | State | `components/GameProvider.tsx`, `lib/hooks/useGame.ts` | React context + `useOC`, `useCurrentJourney`, `useJourneys`, `useNow` |
 | Game logic | `lib/game/` | Pure and deterministic. `seed = hash(ocId + startedAt)`, mulberry32 PRNG, one stream per decision |
 | Destinations | `lib/game/destinations.ts` | 6 tiers (0 = early return … 5 = rare long trips), each with nature / city / cozy places |

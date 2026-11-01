@@ -47,7 +47,7 @@ export default function ReturnPage() {
       setBusy(null);
       return;
     }
-    router.push(next === "save" ? `/album/${saved.id}` : "/prepare");
+    router.push(next === "save" ? `/album/entry?id=${saved.id}` : "/prepare");
   }
 
   return (

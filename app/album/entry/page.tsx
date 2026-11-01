@@ -1,6 +1,7 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { DiaryCard } from "@/components/DiaryCard";
 import { OwnerChat } from "@/components/OwnerChat";
 import { SouvenirBadge } from "@/components/SouvenirBadge";
@@ -13,8 +14,17 @@ import { useGame } from "@/lib/hooks/useGame";
 import { useI18n } from "@/lib/i18n/I18nProvider";
 import { getOCImage } from "@/types/oc";
 
+/** `/album/entry?id=…` — a query string rather than a dynamic segment so the app can be a fully static export. */
 export default function JourneyDetailPage() {
-  const { id } = useParams<{ id: string }>();
+  return (
+    <Suspense fallback={<LoadingState />}>
+      <JourneyDetail />
+    </Suspense>
+  );
+}
+
+function JourneyDetail() {
+  const id = useSearchParams().get("id");
   const { ocs, journeys, status } = useGame();
   const { m, locale } = useI18n();
 
